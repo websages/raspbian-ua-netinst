@@ -19,6 +19,7 @@ packages="$packages e2fsprogs"
 packages="$packages f2fs-tools"
 packages="$packages gpgv"
 packages="$packages raspbian-archive-keyring"
+packages="$packages wpasupplicant wireless-tools"
 
 # libraries
 packages="$packages libblkid1"

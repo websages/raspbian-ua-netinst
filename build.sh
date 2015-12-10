@@ -10,6 +10,7 @@ INSTALL_MODULES="$INSTALL_MODULES kernel/fs/btrfs/btrfs.ko"
 INSTALL_MODULES="$INSTALL_MODULES kernel/drivers/usb/storage/usb-storage.ko"
 INSTALL_MODULES="$INSTALL_MODULES kernel/drivers/scsi/sg.ko"
 INSTALL_MODULES="$INSTALL_MODULES kernel/drivers/scsi/sd_mod.ko"
+INSTALL_MODULES="$INSTALL_MODULES kernel/net/wireless/8192cu.ko"
 
 # checks if first parameter is contained in the array passed as the second parameter
 #   use: contains_element "search_for" "${some_array[@]}" || do_if_not_found
