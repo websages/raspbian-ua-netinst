@@ -522,6 +522,30 @@ else
 fi
 echo "OK"
 
+cat <<HERE>/etc/wpa_supplicant.conf
+ctrl_interface=/var/run/wpa_supplicant
+ctrl_interface_group=0
+ap_scan=2
+network={
+  scan_ssid=1
+  proto=RSN
+  key_mgmt=WPA-PSK
+  pairwise=CCMP
+  group=CCMP
+}
+EOF
+
+
+
+# wlan0 config
+echo "auth wlan0" >> /rootfs/etc/network/interfaces || fail
+if [ "$ip_addr" = "dhcp" ]; then
+    echo "iface wlan0 inet dhcp" >> /rootfs/etc/network/interfaces || fail
+    echo "pre-up wpa_supplicant -Dwext -i wlan0 -c /etc/wpa_supplicant.conf -B" >> /rootfs/etc/network/interfaces || fail
+else
+fi
+echo "OK"
+
 # enable serial console on installed system
 echo -n "  Enabling serial console... "
 echo "#Spawn a getty on Raspberry Pi serial line" >> /rootfs/etc/inittab
