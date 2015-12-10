@@ -1,3 +1,4 @@
+.vagrant/
 /bootfs/
 /packages/
 /installer*.cpio*
